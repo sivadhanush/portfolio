@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sivadhanush Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    /> -->
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --green: #33be60;
+        --yellow: #fef652;
+        --bg: #fafafa;
+        --fg: #141414;
+        --muted: #6b6b6b;
+        --border: #e0e0e0;
+        --card: #ffffff;
+        --sans: "DM Sans", sans-serif;
+        /* --serif: "DM Serif Display", serif; */
+        --serif: "Instrument Serif", serif;
+        --mono: Menlo, monospace;
+      }
+
+      html {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ── NAV ── */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: var(--green);
+        padding: 1.25rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-name {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .nav-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: white;
+        display: inline-block;
+      }
+      .nav-year {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: var(--green);
+        min-height: 100svh;
+        padding: 7rem 4rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .hero-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        padding-bottom: 2rem;
+      }
+      .hero-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 1.5rem;
+      }
+      .hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(3rem, 6vw, 6rem);
+        letter-spacing: 0.005em;
+        line-height: 1;
+        color: white;
+        margin-bottom: 1rem;
+      }
+      .hero-sub {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: clamp(1.25rem, 3vw, 2.25rem);
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+      .hero-desc {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        max-width: 24rem;
+        line-height: 1.625;
+      }
+      .hero-right {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        justify-content: flex-end;
+      }
+      .hero-card {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        transition: background 0.2s;
+      }
+      .hero-card:hover {
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .hero-card-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .hero-card-value {
+        font-size: 0.975rem;
+        font-weight: 500;
+        color: white;
+      }
+      .hero-bottom {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .scroll-hint {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .bounce {
+        animation: bounce 1s infinite;
+        font-size: 1.1rem;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(-4px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+      }
+
+      /* ── SHARED ── */
+      main {
+        background: var(--bg);
+      }
+
+      section {
+        padding: 6rem 4rem;
+        border-bottom: 1px solid var(--border);
+      }
+      section:last-child {
+        border-bottom: none;
+      }
+
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 4rem;
+      }
+      .section-num {
+        font-family: var(--mono);
+        font-size: 0.875rem;
+        color: var(--green);
+      }
+      .section-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ── JOURNEY ── */
+      .journey-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+      .journey-card {
+        border-top: 2px solid var(--green);
+        padding-top: 2rem;
+      }
+      .journey-num {
+        font-family: var(--serif);
+        font-size: 2.25rem;
+        color: var(--muted);
+        margin-bottom: 1.25rem;
+        transition: color 0.15s;
+      }
+      .journey-card:hover .journey-num {
+        color: var(--fg);
+      }
+      .journey-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      .journey-card .sub {
+        font-size: 0.875rem;
+        color: var(--muted);
+        margin-bottom: 0.25rem;
+      }
+      .journey-card .org {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--green);
+      }
+
+      /* ── CALIBER ── */
+      .caliber-head {
+        margin-bottom: 3.5rem;
+      }
+      .caliber-head h3 {
+        font-family: var(--serif);
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        margin-bottom: 0.5rem;
+      }
+      .caliber-head .role {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--green);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+      @media (max-width: 700px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .bullet-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      .bullet-list li {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        font-size: 1rem;
+        color: rgba(20, 20, 20, 0.75);
+      }
+      .bullet-list li .dash {
+        color: var(--green);
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .awards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      .award-card {
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border);
+        background: var(--card);
+        transition: box-shadow 0.15s;
+      }
+      .award-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .award-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: var(--yellow);
+        color: #1a1a1a;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+      .award-card h5 {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+      .award-card p {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.625;
+      }
+
+      /* ── SPEEKON ── */
+      .speekon-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+      @media (max-width: 700px) {
+        .speekon-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .speekon-grid h3 {
+        font-family: var(--serif);
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+      .ext-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--green);
+        margin-bottom: 2rem;
+        transition: opacity 0.15s;
+      }
+      .ext-link:hover {
+        opacity: 0.75;
+      }
+
+      .outcome-box {
+        background: var(--green);
+        border-radius: 1rem;
+        padding: 2.5rem;
+      }
+      .outcome-box .out-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.75rem;
+      }
+      .outcome-box .out-number {
+        font-family: var(--serif);
+        font-size: 3.75rem;
+        font-weight: 700;
+        color: white;
+        line-height: 1;
+        margin-bottom: 0.75rem;
+      }
+      .outcome-box .out-sub {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .outcome-box .out-desc {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 1.5rem;
+        line-height: 1.625;
+      }
+
+      /* ── AI HEALTH ── */
+      .health-head h3 {
+        font-family: var(--serif);
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+      .health-head p {
+        font-size: 1.125rem;
+        color: var(--muted);
+        max-width: 42rem;
+        line-height: 1.625;
+        margin-bottom: 3.5rem;
+      }
+
+      .psi-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 3.5rem;
+      }
+      @media (max-width: 600px) {
+        .psi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .psi-card {
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        border: 1px solid;
+      }
+      .psi-card h4 {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+      .psi-card p {
+        font-size: 0.875rem;
+        color: rgba(20, 20, 20, 0.8);
+        line-height: 1.625;
+      }
+      .psi-problem {
+        background: #fff5f5;
+        border-color: #fecaca;
+      }
+      .psi-problem h4 {
+        color: #e53e3e;
+      }
+      .psi-solution {
+        background: #f0fdf4;
+        border-color: #bbf7d0;
+      }
+      .psi-solution h4 {
+        color: var(--green);
+      }
+      .psi-impact {
+        background: #fefce8;
+        border-color: #fef08a;
+      }
+      .psi-impact h4 {
+        color: #a16207;
+      }
+
+      .features-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      .feature-card {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+        background: var(--card);
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .feature-card .feat-num {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--green);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .feature-card span {
+        font-size: 0.875rem;
+        color: rgba(20, 20, 20, 0.85);
+      }
+
+      /* ── CLOSING ── */
+      .closing {
+        border-bottom: none;
+        padding-bottom: 4rem;
+      }
+      .closing .section-num-plain {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+      .closing h2 {
+        font-family: var(--serif);
+        font-size: clamp(3rem, 5vw, 6rem);
+        margin-bottom: 4rem;
+        line-height: 1.1;
+      }
+      .closing-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        font-size: 1.125rem;
+        color: rgba(20, 20, 20, 0.75);
+        max-width: 36rem;
+        margin-bottom: 5rem;
+      }
+      .closing-list li {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .closing-list li .dash {
+        color: var(--green);
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 3px;
+      }
+
+      .cta-row {
+        border-top: 1px solid var(--border);
+        padding-top: 3rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .cta-row p {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+      }
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        background: var(--green);
+        color: white;
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0.025em;
+        transition: opacity 0.15s;
+      }
+      .cta-btn:hover {
+        opacity: 0.9;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        padding: 2rem 4rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      footer .copy {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+      footer .tagline {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+
+      /* ── SCROLL ANIMATIONS ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-scale {
+        opacity: 0;
+        transform: scale(0.95);
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal-scale.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .d1 {
+        transition-delay: 0.05s;
+      }
+      .d2 {
+        transition-delay: 0.15s;
+      }
+      .d3 {
+        transition-delay: 0.25s;
+      }
+      .d4 {
+        transition-delay: 0.35s;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        header,
+        section,
+        footer {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+        .hero {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          align-items: start;
+        }
+        .hero-right {
+          justify-content: flex-start;
+        }
+        .cta-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        footer {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <header>
+      <span class="nav-name"><span class="nav-dot"></span>Sivadhanush</span>
+      <span class="nav-year">Portfolio</span>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <p class="hero-label">This is me.</p>
+          <h1>Sivadhanush</h1>
+          <p class="hero-sub">I love building products.</p>
+          <p class="hero-desc">
+            4+ years across Product, Operations &amp; Consulting. Built Speekon
+            from 0 to 10K+ users.
+          </p>
+        </div>
+        <div class="hero-right">
+          <div class="hero-card">
+            <span class="hero-card-label">Currently</span>
+            <span class="hero-card-value">Product Builder · Speekon</span>
+          </div>
+          <div class="hero-card">
+            <span class="hero-card-label">Previously</span>
+            <span class="hero-card-value">Product Consultant · Caliber</span>
+          </div>
+          <div class="hero-card">
+            <span class="hero-card-label">Education</span>
+            <span class="hero-card-value">CSE · Jain University</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="scroll-hint">
+          <span>Scroll</span>
+          <span class="bounce">↓</span>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <!-- 01 JOURNEY -->
+      <section>
+        <div class="section-label reveal">
+          <span class="section-num">01</span>
+          <span class="section-title">My Journey</span>
+        </div>
+        <div class="journey-grid">
+          <div class="journey-card reveal d1">
+            <div class="journey-num">01</div>
+            <h3>Full Stack Engineer</h3>
+            <p class="sub">By Education</p>
+            <p class="org">Jain University</p>
+          </div>
+          <div class="journey-card reveal d2">
+            <div class="journey-num">02</div>
+            <h3>Product Consultant</h3>
+            <p class="sub">By Profession</p>
+            <p class="org">Caliber Technologies</p>
+          </div>
+          <div class="journey-card reveal d3">
+            <div class="journey-num">03</div>
+            <h3>Product Builder</h3>
+            <p class="sub">By Passion</p>
+            <p class="org">Speekon</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 CALIBER -->
+      <section>
+        <div class="section-label reveal">
+          <span class="section-num">02</span>
+          <span class="section-title">First Role</span>
+        </div>
+        <div class="caliber-head reveal">
+          <h3>Caliber Technologies</h3>
+          <p class="role">Product Consultant</p>
+        </div>
+        <div class="two-col">
+          <ul class="bullet-list reveal-left">
+            <li>
+              <span class="dash">—</span
+              ><span>Product demonstrations to enterprise clients.</span>
+            </li>
+            <li>
+              <span class="dash">—</span
+              ><span>Requirement gathering &amp; gap analysis.</span>
+            </li>
+            <li>
+              <span class="dash">—</span
+              ><span
+                >Training end users, writing proposed solutions &amp;
+                SOPs.</span
+              >
+            </li>
+            <li>
+              <span class="dash">—</span
+              ><span
+                >Project delivery plans, Managing end-to-end projects.</span
+              >
+            </li>
+          </ul>
+          <div class="awards reveal-right">
+            <div class="award-card">
+              <span class="award-badge">Award</span>
+              <h5>The CEO Award</h5>
+              <p>
+                Led a critical client project, managing a 15-member team and
+                overseeing planning, coordination and SAP integration &amp;
+                Validation.
+              </p>
+            </div>
+            <div class="award-card">
+              <span class="award-badge">Award</span>
+              <h5>The Best Closure</h5>
+              <p>
+                Successfully closed a long-stalled SAP integration project,
+                managing workflows, functional specifications and
+                cross-functional coordination.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 SPEEKON -->
+      <section>
+        <div class="section-label reveal">
+          <span class="section-num">03</span>
+          <span class="section-title">Case Study · Speekon</span>
+        </div>
+        <div class="speekon-grid">
+          <div class="reveal-left">
+            <h3>From idea<br />to 10K+ users.</h3>
+            <a
+              class="ext-link"
+              href="https://speekon.in"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              speekon.in
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 3h6v6" />
+                <path d="M10 14 21 3" />
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+              </svg>
+            </a>
+            <ul class="bullet-list">
+              <li>
+                <span class="dash">—</span
+                ><span>Built full product from scratch.</span>
+              </li>
+              <li>
+                <span class="dash">—</span
+                ><span>Ideated — Architected — Scaled</span>
+              </li>
+              <li>
+                <span class="dash">—</span
+                ><span>Focused on user experience &amp; engagement.</span>
+              </li>
+              <li>
+                <span class="dash">—</span
+                ><span>Worked directly with government stakeholders.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="outcome-box reveal-scale d2">
+            <p class="out-label">Outcome</p>
+            <p class="out-number">10K+</p>
+            <p class="out-sub">Users · Organic</p>
+            <p class="out-desc">
+              Took the product from idea → adoption → recognition.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 AI HEALTH -->
+      <section>
+        <div class="section-label reveal">
+          <span class="section-num">04</span>
+          <span class="section-title">Project Highlight · In Production</span>
+        </div>
+        <div class="health-head reveal">
+          <h3>AI Health Check<br />Guidance System.</h3>
+          <div style="margin-bottom: 1.25rem">
+            <a
+              class="ext-link"
+              href="https://sivadhanush.github.io/health-checkup-guide/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Live Project
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 3h6v6" />
+                <path d="M10 14 21 3" />
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+              </svg>
+            </a>
+          </div>
+          <p>
+            A guided AI system that helps users understand, choose, and act on
+            health checkups — without the noise.
+          </p>
+        </div>
+        <div class="psi-grid">
+          <div class="psi-card psi-problem reveal d1">
+            <h4>Problem</h4>
+            <p>Health checkups are confusing and fragmented.</p>
+          </div>
+          <div class="psi-card psi-solution reveal d2">
+            <h4>Solution</h4>
+            <p>Structured, guided, user-friendly system.</p>
+          </div>
+          <div class="psi-card psi-impact reveal d3">
+            <h4>Impact</h4>
+            <p>Reduced decision friction for users.</p>
+          </div>
+        </div>
+        <p class="features-label reveal">What it helps users do</p>
+        <div class="features-grid">
+          <div class="feature-card reveal d1">
+            <span class="feat-num">01</span
+            ><span>Understand what tests exist.</span>
+          </div>
+          <div class="feature-card reveal d2">
+            <span class="feat-num">02</span
+            ><span>See age-wise recommendations.</span>
+          </div>
+          <div class="feature-card reveal d3">
+            <span class="feat-num">03</span
+            ><span>Know mandatory vs. optional tests.</span>
+          </div>
+          <div class="feature-card reveal d4">
+            <span class="feat-num">04</span
+            ><span>Check if tests are included in packages.</span>
+          </div>
+          <div class="feature-card reveal d4">
+            <span class="feat-num">05</span
+            ><span>Get tests suggested based on symptoms.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 RESUME -->
+      <section>
+        <div class="section-label reveal">
+          <span class="section-num">06</span>
+          <span class="section-title">My Story on Paper</span>
+        </div>
+        <div class="reveal">
+          <h3
+            style="
+              font-family: var(--serif);
+              font-size: clamp(2rem, 4vw, 3rem);
+              margin-bottom: 0.75rem;
+            "
+          >
+            Want the full picture?
+          </h3>
+          <p
+            style="
+              color: var(--muted);
+              font-size: 1.125rem;
+              max-width: 32rem;
+              line-height: 1.625;
+              margin-bottom: 2.5rem;
+            "
+          >
+            Everything in one place — experience, projects, and what I've
+            shipped.
+          </p>
+          <a
+            href="YOUR_GOOGLE_DRIVE_LINK_HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 0.6rem;
+              padding: 0.875rem 2rem;
+              background: var(--fg);
+              color: white;
+              border-radius: 9999px;
+              font-weight: 600;
+              font-size: 0.875rem;
+              letter-spacing: 0.025em;
+              transition: opacity 0.15s;
+            "
+          >
+            View Resume
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- 07 CLOSING -->
+      <section class="closing">
+        <div class="section-label reveal">
+          <span class="section-num">07</span>
+          <span class="section-title">Closing</span>
+        </div>
+        <h2 class="reveal">I'd love to<br />go all in.</h2>
+        <ul class="closing-list reveal">
+          <li>
+            <span class="dash">—</span
+            ><span>I enjoy working on execution and systems.</span>
+          </li>
+          <li>
+            <span class="dash">—</span
+            ><span>Strong interest in solving real-world problems.</span>
+          </li>
+          <li>
+            <span class="dash">—</span
+            ><span>Comfortable with ambiguity and ownership.</span>
+          </li>
+          <li>
+            <span class="dash">—</span
+            ><span
+              >Want to contribute across functions, not just one area.</span
+            >
+          </li>
+        </ul>
+        <div class="cta-row reveal">
+          <p>Let's Connect.</p>
+          <a class="cta-btn" href="mailto:sivadhanushuppalapati@gmail.com">
+            Get in touch
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span class="copy">Sivadhanush © 2026</span>
+      <span class="tagline">Deck of my Career so far...</span>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
